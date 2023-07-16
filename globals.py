@@ -18,6 +18,7 @@ home_url = os.getenv("home_url")
 selenium_url = os.getenv("selenium_url")
 my_user_id = os.getenv("my_user_id")
 delay_time = os.getenv("delay_time")
+fns_list = os.getenv("FELLOW_USER_LIST").split(":")
 outdated_time_days = int(os.getenv("outdated_time_days"))
 unfollow = os.getenv("unfollow")
 

@@ -119,6 +119,12 @@ def select_user_by_hour():
         cookie_path = './cookie/' + globals.my_user_id + '.txt'
         bro.get(globals.home_url)
         login_by_cookie(bro, cookie_path)
+
+        logging.info("读取热门 User ID")
+        for id in globals.fns_list:
+            check_user(bro, chains, id)
+            logging.info("userId = " + id + ' 被扫描，初筛完成!')
+
         # 每次扫描开始的ID
         start_id = get_max_userid()
         # 开始扫描，每次只设置400个

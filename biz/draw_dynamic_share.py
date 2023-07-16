@@ -79,7 +79,7 @@ def do_share(bro, chains, fans_id, user_id):
                 sql = "SELECT * FROM t_share where dyn_id  = " + dyn_id
                 data = db.select_db(sql)  # 用mysql_operate文件中的db的select_db方法进行查询
                 if len(data) != 0:
-                    break
+                    continue
                 # 否则，开始执行下面的转发操作
                 new_url = 'https://t.bilibili.com/' + dyn_id
                 bro.get(new_url)
@@ -165,6 +165,7 @@ def start_forward():
         ids_list = get_fans_list()
         # 执行转发操作
         i = 1
+        do_share(bro, chains, "3493086911007529", globals.my_user_id)
         for id in ids_list:
             do_share(bro, chains, id, globals.my_user_id)
             logging.info("No:  " + str(i) + ", userId = " + id + ' finish share!')
